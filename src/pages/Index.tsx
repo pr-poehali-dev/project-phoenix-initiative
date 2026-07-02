@@ -1,4 +1,5 @@
 import { Hero3DWebGL as Hero3D } from "@/components/hero-webgl"
+import { ChatSection } from "@/components/chat-section"
 import { FeaturesSection } from "@/components/features-section"
 import { TechnologySection } from "@/components/technology-section"
 import { ApplicationsTimeline } from "@/components/applications-timeline"
@@ -16,7 +17,10 @@ export default function Index() {
       <Navbar />
       <main>
         <Hero3D />
-        <FeaturesSection />
+        <ChatSection />
+        <section id="features">
+          <FeaturesSection />
+        </section>
         <section id="technology">
           <TechnologySection />
         </section>
