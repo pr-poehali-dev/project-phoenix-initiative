@@ -30,7 +30,7 @@ def handler(event: dict, context) -> dict:
             'body': json.dumps({'error': 'Method not allowed'}),
         }
 
-    api_key = os.environ.get('OPENAI_API_KEY')
+    api_key = os.environ.get('GROQ_API_KEY')
     if not api_key:
         return {
             'statusCode': 500,
@@ -60,14 +60,14 @@ def handler(event: dict, context) -> dict:
     ]
 
     payload = json.dumps({
-        'model': 'gpt-4o-mini',
+        'model': 'llama3-8b-8192',
         'messages': messages,
         'temperature': 0.7,
         'max_tokens': 800,
     }).encode('utf-8')
 
     req = urllib.request.Request(
-        'https://api.openai.com/v1/chat/completions',
+        'https://api.groq.com/openai/v1/chat/completions',
         data=payload,
         headers={
             'Content-Type': 'application/json',
