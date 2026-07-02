@@ -3,8 +3,9 @@ import { useAspect, useTexture } from "@react-three/drei"
 import { useMemo, useRef, useState, useEffect } from "react"
 import * as THREE from "three"
 
-const TEXTUREMAP = { src: "https://cdn.poehali.dev/projects/300e28b1-0d7c-4c8a-b90d-ee6390397519/files/a64f043f-5548-420f-8850-f773895b2060.jpg" }
+const TEXTUREMAP = { src: "https://i.postimg.cc/XYwvXN8D/img-4.png" }
 const DEPTHMAP = { src: "https://i.postimg.cc/2SHKQh2q/raw-4.webp" }
+const RUST_BG = "https://cdn.poehali.dev/projects/300e28b1-0d7c-4c8a-b90d-ee6390397519/files/a64f043f-5548-420f-8850-f773895b2060.jpg"
 
 extend(THREE as unknown as Record<string, unknown>)
 
@@ -138,6 +139,15 @@ export const Hero3DWebGL = () => {
 
   return (
     <div className="h-screen bg-black relative overflow-hidden">
+      <div
+        className="absolute inset-0 z-[5]"
+        style={{
+          backgroundImage: `url(${RUST_BG})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.35,
+        }}
+      />
       <div className="absolute inset-0 pointer-events-none z-10">
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
